@@ -24,35 +24,34 @@ helpers do
   end
 
   def current_user
-  User.find_by(id: session[:user_id])
+    User.find_by(id: session[:user_id])
   end
-
 end
 
 enable :sessions
 
-
 get '/' do
-  erb :home
-redirect '/login'
+  redirect '/login'
 end
 
 get '/login' do
   erb :login
 end
+
 post '/session' do
   user = User.find_by(email:params[:email])
-    if user && user.authenticate(params[:password])
+  if user && user.authenticate(params[:password])
     session[:user_id] = user.id
     redirect '/dashboard'
-    else
+  else
     erb :login
+  end
 end
-delete '/session' do
-  session[:user_id] = nil
-  redirect '/login'
-end
+# delete '/session' do
+#   session[:user_id] = nil
+#   redirect '/login'
+# end
 get '/dashboard' do
   redirect '/' if !logged_in?
-erb :layout
+  erb :layout
 end
