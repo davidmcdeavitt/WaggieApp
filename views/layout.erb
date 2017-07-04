@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="eng">
+  <head>
+    <meta charset="utf-8">
+    <title>Waggie</title>
+    <link rel='stylesheet' href='/stylesheets/main.css'>
+  </head>
+  <body>
+    <%= session[:user_id] %>
+    <% if logged_in? %>
+
+    logged in as <%= current_user.email %>
+    <form action="/session" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <button>logout</button>
+    </form>
+    <% else %>
+      <a href="/">login</a>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

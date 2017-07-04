@@ -9,6 +9,10 @@ CREATE TABLE users (
 );
 above table created
 
+
+
+
+
 CREATE TABLE animals (
   id SERIAL 4 PRIMARY KEY,
   breed_id INTEGER,
