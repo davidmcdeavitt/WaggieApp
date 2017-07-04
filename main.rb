@@ -48,7 +48,11 @@ post '/session' do
     else
     erb :login
 end
+delete '/session' do
+  session[:user_id] = nil
+  redirect '/login'
+end
 get '/dashboard' do
-
-  
+  redirect '/' if !logged_in?
+erb :layout
 end
