@@ -4,10 +4,15 @@
 
     <form action="/add_friend" method="post">
     <li><%= result.name %></li>
+    <input type="hidden" name="animal_name" value="<%= result.name %>">
     <li><%= result.sex %></li>
+    <input type="hidden" name="animal_sex" value="<%= result.sex %>">
     <li><%= result.mix %></li>
+    <input type="hidden" name="animal_mix" value="<%= result.mix %>">
     <li><%= @zip_code %></li>
+    <input type="hidden" name="location" value="<%= @zip_code %>">
     <li><%= @type %></li>
+    <input type="hidden" name="animal_breed" value="<%= @type %>">
     <button>ADD THIS ONE</button>
     </form>
   </ul>

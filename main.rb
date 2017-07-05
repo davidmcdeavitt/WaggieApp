@@ -105,3 +105,17 @@ get '/search' do
 # page 4
   # petfinder.find_pets('dog', 77057, count: 25, offset: 75)
 end
+post '/add_friend' do
+  friend = Friend.new
+  friend.user_id = session[:user_id]
+  friend.name = params[:animal_name]
+  friend.sex = result.sex
+  friend.mix = result.mix
+  friend.zip_code = @zip_code
+  friend.species = @type
+  if friend.save
+    redirect '/dashboard'
+  else
+    redirect '/add_friend'
+  end
+end

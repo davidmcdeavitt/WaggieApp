@@ -12,6 +12,27 @@ above table created
 \c waggie_db
 to connect to database
 
+only up to here done
+
+CREATE TABLE friends (
+  id SERIAL4 PRIMARY KEY,
+  user_id INTEGER,
+  name TEXT,
+  sex TEXT,
+  mix TEXT,
+  zip_code TEXT,
+  species TEXT
+);
+<li><%= result.name %></li>
+<li><%= result.sex %></li>
+<li><%= result.mix %></li>
+<li><%= @zip_code %></li>
+<li><%= @type %></li>
+
+
+
+
+
 -- CREATE TABLE user_types (
 --   id SERIAL4 PRIMARY KEY,
 --   user_id INTEGER,
