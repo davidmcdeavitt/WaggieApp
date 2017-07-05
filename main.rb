@@ -8,6 +8,8 @@ require_relative 'models/user'
 require_relative 'petfinder'
 
 
+petfinder = Petfinder::Client.new(ENV['PETFINDER_API'], ENV['PETFINDER_SECRET'])
+
 def run_sql(sql)
   conn = PG.connect(dbname: 'waggie_db')
   result = conn.exec(sql)
@@ -31,6 +33,8 @@ helpers do
 end
 
 enable :sessions
+
+
 
 get '/' do
   erb :index
@@ -78,7 +82,26 @@ delete '/session' do
   session[:user_id] = nil
   redirect '/'
 end
+
 get '/dashboard' do
   redirect '/' if !logged_in?
-  erb :layout
+  erb :dashboard
+end
+
+get '/search' do
+  @type = params[:type]
+  @zip_code = params[:zip_code]
+  @results = petfinder.find_pets(@type,@zip_code)
+
+  erb :new_animal
+
+
+# page 2
+  # petfinder.find_pets('dog', 77057, count: 25, offset: 25)
+
+# page 3
+  # petfinder.find_pets('dog', 77057, count: 25, offset: 50)
+
+# page 4
+  # petfinder.find_pets('dog', 77057, count: 25, offset: 75)
 end

@@ -6,6 +6,8 @@
     <link rel='stylesheet' href='/stylesheets/main.css'>
   </head>
   <body>
+    <header>
+
     <%= session[:user_id] %>
     <% if logged_in? %>
 
@@ -15,8 +17,12 @@
       <button>logout</button>
     </form>
     <% else %>
-      <a href="/">login</a>
+      <a href="/login">login</a>
     <% end %>
+
+    </header>
+
+    <%= yield %>
 
   </body>
 </html>

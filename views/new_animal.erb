@@ -1,0 +1,14 @@
+<h2>YOUR FUTURE FRIEND</h2>
+<% @results.each do |result| %>
+  <ul style="list-style: none;">
+
+    <form action="/add_friend" method="post">
+    <li><%= result.name %></li>
+    <li><%= result.sex %></li>
+    <li><%= result.mix %></li>
+    <li><%= @zip_code %></li>
+    <li><%= @type %></li>
+    <button>ADD THIS ONE</button>
+    </form>
+  </ul>
+<%end%>
