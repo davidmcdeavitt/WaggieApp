@@ -6,7 +6,7 @@ require 'petfinder'
 require_relative 'db_config'
 require_relative 'models/user'
 require_relative 'petfinder'
-
+require_relative 'models/friend'
 
 petfinder = Petfinder::Client.new(ENV['PETFINDER_API'], ENV['PETFINDER_SECRET'])
 
@@ -106,13 +106,16 @@ get '/search' do
   # petfinder.find_pets('dog', 77057, count: 25, offset: 75)
 end
 post '/add_friend' do
+
   friend = Friend.new
+
   friend.user_id = session[:user_id]
   friend.name = params[:animal_name]
-  friend.sex = result.sex
-  friend.mix = result.mix
-  friend.zip_code = @zip_code
-  friend.species = @type
+  friend.sex = params[:animal_sex]
+  friend.mix = params[:animal_mix]
+  friend.zip_code = params[:animal_location]
+  friend.species = params[:animal_breed]
+
   if friend.save
     redirect '/dashboard'
   else
