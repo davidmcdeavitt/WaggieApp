@@ -9,6 +9,20 @@
 </form>
 
 <h3>YOUR FUTURE FRIENDS LIST</h3>
+  <% @friends.each do |friend| %>
+    <ul style="list-style: none;">
 
+      <li><%= friend.name %></li>
+
+      <li><%= friend.sex %></li>
+
+      <li><%= friend.mix %></li>
+
+      <li><%= friend.zip_code %></li>
+
+      <li><%= friend.species %></li>
+
+    </ul>
+  <%end%>
 
 </div>

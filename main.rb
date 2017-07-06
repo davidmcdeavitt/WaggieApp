@@ -85,7 +85,9 @@ end
 
 get '/dashboard' do
   redirect '/' if !logged_in?
+  @friends = Friend.where(user_id: session[:user_id])
   erb :dashboard
+  
 end
 
 get '/search' do
@@ -94,7 +96,7 @@ get '/search' do
   @results = petfinder.find_pets(@type,@zip_code)
 
   erb :new_animal
-
+end
 
 # page 2
   # petfinder.find_pets('dog', 77057, count: 25, offset: 25)
@@ -104,7 +106,7 @@ get '/search' do
 
 # page 4
   # petfinder.find_pets('dog', 77057, count: 25, offset: 75)
-end
+
 post '/add_friend' do
 
   friend = Friend.new
