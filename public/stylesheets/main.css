@@ -1,0 +1,54 @@
+body
+{
+  background-image: url("https://rampages.us/izdivine/wp-content/uploads/sites/8175/2015/10/101.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+input[type=text], input[type=password] {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-family: 'Lobster', cursive;
+    color: #d5e816;
+    background-color: rgba(240,237,237,0.3);
+}
+
+button, button.add_friend {
+    font-family: 'Lobster', cursive;
+    color: #03a9f4!important;
+    background-color: #d5e816!important;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    font-size: 1.5em!important;
+    display: inline-block;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.login {
+    padding: 16px;
+    font-family: 'Lobster', cursive;
+    color: #d5e816;
+    background-color: rgba(240,237,237,0.3);
+    text-align: center;
+    width: 100%;
+
+}
+.add_friend{
+  padding: 16px;
+  font-family: 'Lobster', cursive;
+  color: black;
+  background-color: rgba(240,237,237,0.3);
+  text-align: center;
+  width: 95%;
+}

@@ -4,12 +4,13 @@
     <meta charset="utf-8">
     <title>Waggie</title>
     <link rel='stylesheet' href='/stylesheets/main.css'>
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
   </head>
   <body>
     <header>
 
     <%= session[:user_id] %>
-    
+
     <% if logged_in? %>
 
     logged in as <%= current_user.email %>
