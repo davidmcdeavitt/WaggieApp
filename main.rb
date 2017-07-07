@@ -87,7 +87,7 @@ get '/dashboard' do
   redirect '/' if !logged_in?
   @friends = Friend.where(user_id: session[:user_id])
   erb :dashboard
-  
+
 end
 
 get '/search' do
@@ -123,4 +123,15 @@ post '/add_friend' do
   else
     redirect '/add_friend'
   end
+end
+
+# get '/friend/friend.id' do
+#   friend = Friend.find(friend.id)
+#   erb :dashboard
+# end
+
+delete '/friends/:id' do
+  friend = Friend.find(params[:id])
+  friend.destroy
+  redirect '/dashboard'
 end

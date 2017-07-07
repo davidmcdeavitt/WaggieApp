@@ -9,10 +9,11 @@
 </form>
 
 <h3>YOUR FUTURE FRIENDS LIST</h3>
+
   <% @friends.each do |friend| %>
     <ul style="list-style: none;">
 
-      <li><%= friend.name %></li>
+      <li><option value="<%= friend.id %>"><%= friend.name %></option></li>
 
       <li><%= friend.sex %></li>
 
@@ -22,7 +23,13 @@
 
       <li><%= friend.species %></li>
 
+  </form>
     </ul>
+
+  <form action="/friends/<%= friend.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button>delete</button>
+  </form>
   <%end%>
 
 </div>
