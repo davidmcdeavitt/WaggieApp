@@ -23,12 +23,6 @@ CREATE TABLE friends (
   zip_code TEXT,
   species TEXT
 );
-<li><%= result.name %></li>
-<li><%= result.sex %></li>
-<li><%= result.mix %></li>
-<li><%= @zip_code %></li>
-<li><%= @type %></li>
-
 
 
 
@@ -48,13 +42,3 @@ CONSTRAINT Checklocation CHECK (Location > 99999);
 
 ALTER TABLE users ADD COLUMN Location INTEGER(5)
 CONSTRAINT Checklocation CHECK (Location > 99999);
-
-CREATE TABLE animals (
-  id SERIAL 4 PRIMARY KEY,
-  breed_id INTEGER,
-
-);
-**need to figure out if should do this next**
-ALTER TABLE animals ADD COLUMN shelter_location INTEGER;
-
-CREATE TABLE breeds
